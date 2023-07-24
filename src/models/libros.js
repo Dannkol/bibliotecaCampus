@@ -102,4 +102,24 @@ const getAllPrestado = async () => {
   }
 }
 
-export default { getAlllibrosEstadoDes , getAlllibrosAutorEdit , getAllDisponible, getAllPrestado}
+
+const getidAutor = async (id) => {
+  const Connection = await getConnection();
+
+  try {
+    
+    const query = `SELECT titulo FROM libro WHERE id_autor = ?;`;
+
+    const [result] = await Connection.execute(query, [id]);
+
+    return {
+      mensaje : "libros por autor",
+      data : result
+    }
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export default { getAlllibrosEstadoDes , getAlllibrosAutorEdit , getAllDisponible, getAllPrestado, getidAutor}
