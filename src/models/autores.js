@@ -16,7 +16,7 @@ const getAllautores = async () => {
         
         const query = `SELECT CONCAT(nombre ,' ',apellido) AS "nombre_completo" , nacionalidad FROM autor`
 
-        const query_get = await Connection.execute(query);
+        const [query_get] = await Connection.execute(query);
 
         return {
             mensaje : "Todos los autores",
@@ -25,7 +25,8 @@ const getAllautores = async () => {
 
 
     } catch (error) {
-        
+        console.log(error);
+        res.status(500).json({ message: "Error al obtener los datos" });
     }finally{
         Connection.end();
     }

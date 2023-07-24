@@ -16,7 +16,7 @@ const getAllcategorias = async () => {
         
         const query = `SELECT nombre FROM categoria;`
 
-        const query_get = await Connection.execute(query);
+        const [query_get] = await Connection.execute(query);
 
         return {
             mensaje : "Todas las categorias",
@@ -25,7 +25,8 @@ const getAllcategorias = async () => {
 
 
     } catch (error) {
-        
+        console.log(error);
+        res.status(500).json({ message: "Error al obtener los datos" });
     }finally{
         Connection.end();
     }

@@ -16,7 +16,7 @@ const getAlleditor = async () => {
         
         const query = `SELECT nombre, direccion FROM editorial;`
 
-        const query_get = await Connection.execute(query);
+        const [query_get] = await Connection.execute(query);
 
         return {
             mensaje : "Todas las editoriales",
@@ -25,7 +25,8 @@ const getAlleditor = async () => {
 
 
     } catch (error) {
-        
+        console.log(error);
+        res.status(500).json({ message: "Error al obtener los datos" });
     }finally{
         Connection.end();
     }
