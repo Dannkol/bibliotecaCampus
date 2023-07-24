@@ -1,3 +1,7 @@
+## Diagrama MER
+
+<img src="./db/Diagrama libros.png" alt="Diagrama">
+
 
 # API Reference
 
@@ -607,7 +611,6 @@ Responde
   ]
 }
 ```
-
 
 ## 🛠 Tecnologias
 Node, Express, Mysql
