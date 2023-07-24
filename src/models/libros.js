@@ -42,7 +42,7 @@ const getAlllibrosAutorEdit = async () => {
     INNER JOIN autor AS t2 ON t1.id_categoria = t2.id_autor
     INNER JOIN editorial AS t3 ON t1.id_editorial = t3.id_editorial;`;
 
-    const query_get = await Connection.execute(query);
+    const [query_get] = await Connection.execute(query);
 
 
     return {
