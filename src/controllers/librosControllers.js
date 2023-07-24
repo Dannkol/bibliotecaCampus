@@ -30,8 +30,18 @@ const getAllDisponible = async (req, res) => {
         res.status(200).json(respons);
 
     } catch (error) {
-        
+        console.log(error);
     }
 }
 
-export { getAlllibrosEstadoDes , getAlllibrosAutorEdit , getAllDisponible}
+const getAllPrestado = async (req, res) => {
+    try {
+        const respons = await libros.getAllPrestado();
+
+        res.status(200).json(respons);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export { getAlllibrosEstadoDes , getAlllibrosAutorEdit , getAllDisponible, getAllPrestado}

@@ -81,4 +81,25 @@ const getAllDisponible = async () => {
   }
 }
 
-export default { getAlllibrosEstadoDes , getAlllibrosAutorEdit , getAllDisponible}
+
+const getAllPrestado = async () => {
+  const Connection = await getConnection();
+
+  try {
+    
+    const query = `SELECT t2.titulo, t1.fecha_devolucion FROM prestamo AS t1 
+    INNER JOIN libro AS t2 ON t1.id_libro = t2.id_libro;`;
+
+    const [result] = await Connection.execute(query);
+
+    return {
+      mensaje : "libros Prestado",
+      data : result
+    }
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export default { getAlllibrosEstadoDes , getAlllibrosAutorEdit , getAllDisponible, getAllPrestado}
