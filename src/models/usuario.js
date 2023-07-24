@@ -72,4 +72,24 @@ const getReservas = async (id) => {
     }
 }
 
-export default { getUser , getPrestamos, getReservas};
+const getAll = async () => {
+  const connection = await getConnection();
+
+  try {
+    const query_user = `SELECT nombre , email FROM usuario;`;
+
+    const [result] = await connection.execute(query_user);
+  
+    return {
+      mensaje : "Users",
+      data : result
+    }
+  
+  }catch (error){
+
+  }finally{
+    connection.end()
+  }
+}
+
+export default { getUser , getPrestamos, getReservas , getAll};

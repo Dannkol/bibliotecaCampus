@@ -51,4 +51,16 @@ const getReservas = async (req, res) => {
     }
 }
 
-export {authorization , getPrestamos, getReservas} ;
+const getAll = async (req, res) => {
+  try {
+    
+    const result = await users.getAll()
+
+    res.status(200).json(result);
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export {authorization , getPrestamos, getReservas ,getAll} ;
