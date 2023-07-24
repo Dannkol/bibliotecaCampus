@@ -52,4 +52,24 @@ const getPrestamos = async (id) => {
     }
 }
     
-export default { getUser , getPrestamos};
+
+const getReservas = async (id) => {
+    const connection = await getConnection();
+
+    try{
+        const query = `SELECT fecha_reserva, estado FROM reserva WHERE id_usuario = ?;`
+
+        const [result] = await connection.execute(query, [id])
+
+        return {
+            mensaje : "Reserva",
+            data : result
+        }
+    }catch (error) {
+        console.log(error);
+    }finally{
+        connection.end();
+    }
+}
+
+export default { getUser , getPrestamos, getReservas};

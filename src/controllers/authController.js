@@ -40,4 +40,15 @@ const getPrestamos = async (req, res) => {
     }
 }
 
-export {authorization , getPrestamos} ;
+const getReservas = async (req, res) => {
+    try {
+        const result = await users.getReservas(req.user.id);
+
+        res.status(200).json(result);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({mensaje : "Error al obtener los datos"})
+    }
+}
+
+export {authorization , getPrestamos, getReservas} ;

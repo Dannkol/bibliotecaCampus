@@ -2,7 +2,7 @@ import express from "express";
 
 // Controllers
 
-import {authorization , getPrestamos} from "../controllers/authController.js";
+import {authorization , getPrestamos, getReservas} from "../controllers/authController.js";
 
 import authenticateToken from "../middleware/JWT.js";
 
@@ -34,4 +34,5 @@ router.post(
 
 router.get("/prestamos", authenticateToken, getPrestamos);
 
+router.get("/reserva" , authenticateToken, getReservas);
 export default router;
