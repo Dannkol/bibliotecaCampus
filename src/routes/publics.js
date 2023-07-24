@@ -26,12 +26,11 @@ router.get('/libros', getAlllibrosEstadoDes);
 
 router.get('/libros/autor/:id', getidAutor);
 
-
 router.get('/libros/disponibles', getAllDisponible);
 
 router.get('/libros/prestados', getAllPrestado);
 
-router.get('/libros/autor/editoriela', getAlllibrosAutorEdit);
+router.get('/libros/editorial/autor', getAlllibrosAutorEdit);
 
 router.get('/usuarios', getAll);
 

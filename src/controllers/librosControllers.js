@@ -12,8 +12,12 @@ const getAlllibrosAutorEdit = async (req, res) => {
   try {
     const respons = await libros.getAlllibrosAutorEdit();
 
+    console.log('hola');
+
     res.status(200).json(respons);
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const getAllDisponible = async (req, res) => {
