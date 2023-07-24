@@ -7,6 +7,7 @@ import configureApp from "./src/config/express.js";
 
 // Rutas
 import routas_publicas from './src/routes/publics.js';
+import router_user from "./src/routes/usuario.js";
 
 
 dotenv.config()
@@ -20,6 +21,8 @@ app.use(cookieParser());
 
 // Definir las rutas
 app.use('/api',routas_publicas);
+app.use('/api/auth',router_user);
+
 
 
 
