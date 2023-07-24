@@ -59,4 +59,26 @@ const getAlllibrosAutorEdit = async () => {
 
 }
 
-export default { getAlllibrosEstadoDes , getAlllibrosAutorEdit }
+const getAllDisponible = async () => {
+  const Connection = await getConnection();
+
+  try {
+    
+    const query = `SELECT t1.titulo , CONCAT(t3.nombre,' ',t3.apellido) AS "nombre_autor" FROM libro AS t1
+    INNER JOIN estado_libro AS t2 ON t1.id_estado = t2.id_estado
+    INNER JOIN autor AS t3 ON t1.id_autor = t3.id_autor
+    WHERE t2.nombre = "Disponible";`;
+
+    const [result] = await Connection.execute(query);
+
+    return {
+      mensaje : "libros disponibles",
+      data : result
+    }
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export default { getAlllibrosEstadoDes , getAlllibrosAutorEdit , getAllDisponible}

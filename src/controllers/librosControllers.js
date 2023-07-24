@@ -22,4 +22,16 @@ const getAlllibrosAutorEdit = async (req, res) => {
     }
 }
 
-export { getAlllibrosEstadoDes , getAlllibrosAutorEdit}
+const getAllDisponible = async (req, res) => {
+    try {
+        
+        const respons = await libros.getAllDisponible();
+
+        res.status(200).json(respons);
+
+    } catch (error) {
+        
+    }
+}
+
+export { getAlllibrosEstadoDes , getAlllibrosAutorEdit , getAllDisponible}
