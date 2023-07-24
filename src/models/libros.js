@@ -38,7 +38,7 @@ const getAlllibrosAutorEdit = async () => {
   const Connection = await getConnection();
 
   try {
-    const query = `SELECT t1.titulo, CONCAT(t2.nombre,' ',t2.apellido) AS "nombre_autor" , t3.nombre AS "estado" FROM libro AS t1
+    const query = `SELECT t1.titulo, CONCAT(t2.nombre,' ',t2.apellido) AS "nombre_autor" , t3.nombre AS "editorial" FROM libro AS t1
     INNER JOIN autor AS t2 ON t1.id_categoria = t2.id_autor
     INNER JOIN editorial AS t3 ON t1.id_editorial = t3.id_editorial;`;
 
